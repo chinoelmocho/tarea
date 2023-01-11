@@ -4,6 +4,7 @@
  */
 package p61.u04_01.vista;
 
+import javax.swing.JOptionPane;
 import p61.u04_01.controlador.CiudadControl;
 import p61.u04_01.controlador.ViajeControl;
 
@@ -195,9 +196,14 @@ public class VentanaViaje extends javax.swing.JInternalFrame {
         data[3] = this.jTextField4.getText();
         data[4] = this.jTextField5.getText();
         data[5] = this.jTextField6.getText();
-
-        this.viajeControl.crear(data);
-        this.actualizarTabla();
+        try {
+            this.viajeControl.crear(data);
+            this.actualizarTabla();
+        } catch (Exception e1) {
+            JOptionPane.showMessageDialog(this, e1.getMessage(), "Error en la creación", JOptionPane.ERROR_MESSAGE);
+        }
+        
+       
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
